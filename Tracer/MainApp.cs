@@ -10,7 +10,7 @@ namespace MyTracerApp
         static void Main(string[] args)
         {
             Tracer tracer = new Tracer();
-            //for ex
+            
             tracer.StartTrace();
             Thread.Sleep(100);
             tracer.StopTrace();
@@ -21,15 +21,17 @@ namespace MyTracerApp
 
            thread1.Start(tracer);
            thread1.Join();
-           // Console.WriteLine(tracer.GetTraceResult()); 
-
-            //for json
-            var jsonSerializer = new JsonSerializer();
+            
+            //get results of tracing
             TraceResult traceResult = tracer.GetTraceResult();
-
-            string json = jsonSerializer.Serialize(traceResult);
-                        
+            //for json
+            var jsonSerializer = new JsonSerializer();            
+            string json = jsonSerializer.Serialize(traceResult);                        
             Console.WriteLine(json);
+            //for xml
+            var xmlSerializer = new LXmlSerializer();
+            string xml = xmlSerializer.Serialize(traceResult);
+            Console.WriteLine(xml);
         }
         //method for tracing
         public void Method(object o)
