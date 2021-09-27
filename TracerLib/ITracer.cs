@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TracerFolder
+﻿namespace TracerLib
 {
-    interface ITracer
+    public interface ITracer
     {
-        void StartTrace();​
-    
-        void StopTrace();​
-   
+        void StartTrace();
+
+        void StopTrace();
+
         TraceResult GetTraceResult();
     }
 }

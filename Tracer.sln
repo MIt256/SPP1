@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "Tracer\App.csproj", "{EFA78A90-3702-4A37-8F95-8AE5D495925F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainApp", "Tracer\MainApp.csproj", "{EFA78A90-3702-4A37-8F95-8AE5D495925F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracerLib", "TracerLib\TracerLib.csproj", "{93E09D4E-DBF9-4082-A897-601713E13C01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TracerLib", "TracerLib\TracerLib.csproj", "{93E09D4E-DBF9-4082-A897-601713E13C01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
