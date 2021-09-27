@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using TracerLib;
+using TracerLib.Serialization;
 
 namespace MyTracerApp
 {
@@ -18,9 +19,17 @@ namespace MyTracerApp
 
             Thread thread1 = new Thread(new ParameterizedThreadStart(app.Method));
 
-            thread1.Start(tracer);
-            thread1.Join();
-            Console.WriteLine(tracer.GetTraceResult()); 
+           thread1.Start(tracer);
+           thread1.Join();
+           // Console.WriteLine(tracer.GetTraceResult()); 
+
+            //for json
+            var jsonSerializer = new JsonSerializer();
+            TraceResult traceResult = tracer.GetTraceResult();
+
+            string json = jsonSerializer.Serialize(traceResult);
+                        
+            Console.WriteLine(json);
         }
         //method for tracing
         public void Method(object o)
