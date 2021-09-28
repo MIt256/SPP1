@@ -2,24 +2,24 @@
   "threads": [
     {
       "id": 1,
-      "time": 107,
+      "time": 102,
       "methods": [
         {
           "name": "Main",
           "class": "MainApp",
-          "time": 107.0,
+          "time": 102.0,
           "methods": null
         }
       ]
     },
     {
       "id": 5,
-      "time": 57,
+      "time": 51,
       "methods": [
         {
           "name": "Method",
           "class": "MainApp",
-          "time": 57.0,
+          "time": 51.0,
           "methods": null
         }
       ]

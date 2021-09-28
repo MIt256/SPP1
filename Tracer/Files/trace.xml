@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-16"?>
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <thread id="1" time="107">
-    <methods name="Main" class="MainApp" time="107" />
+  <thread id="1" time="102">
+    <methods name="Main" class="MainApp" time="102" />
   </thread>
-  <thread id="5" time="57">
-    <methods name="Method" class="MainApp" time="57" />
+  <thread id="5" time="51">
+    <methods name="Method" class="MainApp" time="51" />
   </thread>
 </root>
