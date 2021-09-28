@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace App.Output
+﻿namespace App.Output
 {
     interface IPrinter
     {

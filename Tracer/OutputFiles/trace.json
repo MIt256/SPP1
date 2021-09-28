@@ -1,0 +1,41 @@
+{
+  "threads": [
+    {
+      "id": 1,
+      "time": 317,
+      "methods": [
+        {
+          "name": "Main",
+          "class": "MyApp",
+          "time": 106.0,
+          "methods": null
+        },
+        {
+          "name": "MyMethod",
+          "class": "Foo",
+          "time": 106.0,
+          "methods": [
+            {
+              "name": "InnerMethod",
+              "class": "Bar",
+              "time": 105.0,
+              "methods": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "time": 115,
+      "methods": [
+        {
+          "name": "MethodForThread",
+          "class": "MyApp",
+          "time": 115.0,
+          "methods": null
+        }
+      ]
+    }
+  ]
+}

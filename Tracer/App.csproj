@@ -6,11 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TracerLib\TracerLib.csproj" />
+    <ProjectReference Include="..\TracerLib\Tracer.csproj" />
+    
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Files\" />
+    <Folder Include="OutputFiles\" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
-﻿using System.Xml.Serialization;
-using System.IO;
-using System.Xml;
-using Formatting = System.Xml.Formatting;
+﻿using System.IO;
 using System.Linq;
+using System.Xml;
+using System.Xml.Serialization;
+using Formatting = System.Xml.Formatting;
 
 namespace TracerLib.Serialization
 {

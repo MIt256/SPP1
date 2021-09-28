@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Xml.Serialization;
-using Newtonsoft.Json;
 
 namespace TracerLib
 {

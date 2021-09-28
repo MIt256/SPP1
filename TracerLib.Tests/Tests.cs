@@ -1,25 +1,24 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Diagnostics;
+using System.Threading;
+using TracerLib;
 
-namespace TracerLib.Tests
+namespace TracerTests
 {
     [TestClass]
-    public class TraceLibTests
+    public class Tests
     {
+        const string expectedMethodName = "MethodForTests";
+        const string expectedMethodClass = "Tests";
+        const int expectedThreadsCount = 3;
+        const int expectedMethodsCount = 4;
 
         Tracer tracer = new Tracer();
         List<Thread> threads = new List<Thread>();
 
-        const int expectedThreadsCount = 3;
-        const int expectedMethodsCount = 5;
-        const string expectedMethodName = "Method";
-        const string expectedMethodClass = "TraceLibTests"; 
-
-
-        void Method()
+        void MethodForTests()
         {
             tracer.StartTrace();
             Thread.Sleep(100);
@@ -29,14 +28,14 @@ namespace TracerLib.Tests
         [TestMethod]
         public void MethodNameCheck()
         {
-            Method();
+            MethodForTests();
             Assert.AreEqual(expectedMethodName, tracer.GetTraceResult().GetThreadTracers()[Thread.CurrentThread.ManagedThreadId].MethodTracerList[0].MethodName);
         }
 
         [TestMethod]
         public void MethodClassCheck()
         {
-            Method();
+            MethodForTests();
             Assert.AreEqual(expectedMethodClass, tracer.GetTraceResult().GetThreadTracers()[Thread.CurrentThread.ManagedThreadId].MethodTracerList[0].ClassName);
         }
 
@@ -45,7 +44,7 @@ namespace TracerLib.Tests
         {
             for (int i = 0; i < expectedThreadsCount; i++)
             {
-                threads.Add(new Thread(Method));
+                threads.Add(new Thread(MethodForTests));
                 threads[i].Start();
                 threads[i].Join();
             }
@@ -59,7 +58,7 @@ namespace TracerLib.Tests
         {
             for (int i = 0; i < expectedMethodsCount; i++)
             {
-                Method();
+                MethodForTests();
             }
             Assert.AreEqual(expectedMethodsCount, tracer.GetTraceResult().GetThreadTracers()[Thread.CurrentThread.ManagedThreadId].MethodTracerList.Count);
         }
@@ -68,13 +67,10 @@ namespace TracerLib.Tests
         public void MethodTimeIsCorrect()
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            Method();
+            MethodForTests();
             var time = stopwatch.ElapsedMilliseconds;
 
             var methodTime = tracer.GetTraceResult().GetThreadTracers()[Thread.CurrentThread.ManagedThreadId].MethodTracerList[0].Time;
-
-            Console.WriteLine(time);
-            Console.WriteLine(methodTime);
 
             bool flag = methodTime + 5 >= time;
             flag |= methodTime - 5 <= time;
@@ -86,15 +82,13 @@ namespace TracerLib.Tests
         public void ThreadTimeIsCorrect()
         {
             Stopwatch stopwatch = Stopwatch.StartNew();
-            Method();
-            Method();
-            Method();
+            MethodForTests();
+            MethodForTests();
+            MethodForTests();
+            MethodForTests();
             var time = stopwatch.ElapsedMilliseconds;
 
             var threadTime = tracer.GetTraceResult().GetThreadTracers()[Thread.CurrentThread.ManagedThreadId].ThreadTime;
-
-            Console.WriteLine(time);
-            Console.WriteLine(threadTime);
 
             bool flag = threadTime + 5 >= time;
             flag |= threadTime - 5 <= time;

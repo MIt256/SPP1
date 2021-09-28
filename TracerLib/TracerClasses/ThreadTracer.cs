@@ -1,29 +1,29 @@
-﻿    using System.Collections.Generic;
-    using System.Xml.Serialization;
-    using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
-    namespace TracerLib
+namespace TracerLib
+{
+    //tracer for threads
+    [XmlType("thread")]
+    public class ThreadTracer
     {
-        //tracer for threads
-        [XmlType("thread")]
-        public class ThreadTracer
+        [JsonProperty("id")]
+        [XmlAttribute("id")]
+        public int ThreadId { get; set; }
+
+        [JsonProperty("time")]
+        [XmlAttribute("time")]
+        public long ThreadTime { get; set; }
+
+        [JsonProperty("methods")]
+        [XmlElement("methods")]
+        public List<MethodTracer> MethodTracerList { get; set; }
+
+        public ThreadTracer() { }
+        public ThreadTracer(int threadId)
         {
-            [JsonProperty("id")]
-            [XmlAttribute("id")]
-            public int ThreadId { get; set; }
-
-            [JsonProperty("time")]
-            [XmlAttribute("time")]
-            public long ThreadTime { get; set; }
-
-            [JsonProperty("methods")]
-            [XmlElement("methods")]
-            public List<MethodTracer> MethodTracerList { get; set; }
-
-            public ThreadTracer() { }
-            public ThreadTracer(int threadId)
-            {
-                ThreadId = threadId;
+            ThreadId = threadId;
             MethodTracerList = new List<MethodTracer>();
         }
         public void PushMethod(string methodName, string className, byte[] hash)

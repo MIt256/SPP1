@@ -4,13 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "Tracer\App.csproj", "{EFA78A90-3702-4A37-8F95-8AE5D495925F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer", "TracerLib\Tracer.csproj", "{93E09D4E-DBF9-4082-A897-601713E13C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracerTests", "TracerLib.Tests\TracerTests.csproj", "{AF65D1F9-53B7-4AEE-9699-D69C5101C813}"
 	ProjectSection(ProjectDependencies) = postProject
-		{AF65D1F9-53B7-4AEE-9699-D69C5101C813} = {AF65D1F9-53B7-4AEE-9699-D69C5101C813}
+		{93E09D4E-DBF9-4082-A897-601713E13C01} = {93E09D4E-DBF9-4082-A897-601713E13C01}
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TracerLib", "TracerLib\TracerLib.csproj", "{93E09D4E-DBF9-4082-A897-601713E13C01}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracerLib.Tests", "TracerLib.Tests\TracerLib.Tests.csproj", "{AF65D1F9-53B7-4AEE-9699-D69C5101C813}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
